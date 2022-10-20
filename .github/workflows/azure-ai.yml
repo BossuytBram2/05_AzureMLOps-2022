@@ -86,11 +86,11 @@ on:
 env:
   CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
 
-  CLIENT_ID: cf21afce-62c6-4ffc-8c44-305bbcd608cc # Change this !
-  TENANT_ID: b1b5b747-fa79-442d-b8ab-870c8343c3c4 # Change this !
-  WORKSPACE_NAME: MLOps-nathan-segers # Change this !
-  RESOURCE_GROUP: TETRA-Workshop-2406 # Change this !
-  SUBSCRIPTION_ID: 763622cd-d9e1-46f1-84c7-635df9708641 # Change this !
+  CLIENT_ID: adf0c9de-62e0-4bb5-8737-050c2a914f9b # Change this !
+  TENANT_ID: 4ded4bb1-6bff-42b3-aed7-6a36a503bf7a # Change this !
+  WORKSPACE_NAME: bossuyt-bram-ml # Change this !
+  RESOURCE_GROUP: mlops-demo # Change this !
+  SUBSCRIPTION_ID: e46ec49e-7bec-4b81-8617-861c47439d64 # Change this !
 
   ANIMALS: cats,dogs,pandas # As we have three classes, let's just defined them here. This way we can easily loop over them later.
   TRAIN_SET_NAME: animals-training-set
