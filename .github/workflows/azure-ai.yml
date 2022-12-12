@@ -92,7 +92,7 @@ env:
   RESOURCE_GROUP: MLops # Change this !
   SUBSCRIPTION_ID: e46ec49e-7bec-4b81-8617-861c47439d64 # Change this !
 
-  ANIMALS: pizza_v1,notpizza_v1 # As we have three classes, let's just defined them here. This way we can easily loop over them later.
+  FOOD: pizza_v1,notpizza_v1 # As we have three classes, let's just defined them here. This way we can easily loop over them later.
   TRAIN_SET_NAME: food-training-set
   TEST_SET_NAME: food-testing-set
   MODEL_NAME: food-cnn
