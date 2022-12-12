@@ -9,5 +9,5 @@ dependencies:
       - azureml-defaults
       - numpy
       - scikit-learn
-      - tensorflow
+      - tensorflow==2.7
       - opencv-python-headless

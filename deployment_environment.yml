@@ -6,6 +6,6 @@ dependencies:
   - python=3.8
   - pip:
       - azureml-defaults
-      - tensorflow
+      - tensorflow==2.7
       - numpy
       - Pillow
