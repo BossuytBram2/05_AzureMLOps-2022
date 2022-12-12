@@ -114,8 +114,8 @@ cb_early_stop = keras.callbacks.EarlyStopping(monitor='val_loss',
 cb_reduce_lr_on_plateau = keras.callbacks.ReduceLROnPlateau(
     factor=.5, patience=4, verbose=1)
 
-opt = SGD(lr=INITIAL_LEARNING_RATE, decay=INITIAL_LEARNING_RATE /
-          MAX_EPOCHS)  # Define the Optimizer
+opt = SGD(learning_rate=INITIAL_LEARNING_RATE,
+          momentum=INITIAL_LEARNING_RATE / MAX_EPOCHS)  # Define the Optimizer
 
 # Create the AI model as defined in the utils script.
 model = buildModel((64, 64, 3), 2)
