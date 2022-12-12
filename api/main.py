@@ -16,7 +16,7 @@ app.add_middleware(
 
 FOOD = ['pizza', 'notpizza']  # Animal names here
 
-model = load_model('outputs/pizza-cnn-test')  # Model_name here!
+model = load_model('outputs/food-cnn-test')  # Model_name here!
 
 
 @app.post('/upload/image')
