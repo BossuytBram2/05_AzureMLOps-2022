@@ -122,7 +122,7 @@ def trainTestSplitData(ws):
         # Concatenate the names for the food_name and the img_path. Don't put a / between, because the img_path already contains that
         # Make sure the paths are actual DataPaths
         food_images = [
-            (default_datastore, f'processed_foods/{food_name}{img_path}') for img_path in food_images]
+            (default_datastore, f'processed_food/{food_name}{img_path}') for img_path in food_images]
 
         # Use the same random seed as I use and defined in the earlier cells
         random.seed(SEED)

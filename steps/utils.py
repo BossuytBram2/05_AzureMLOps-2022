@@ -14,17 +14,6 @@ def connectWithAzure() -> Workspace:
     client_id = os.environ.get("CLIENT_ID")
     client_secret = os.environ.get("CLIENT_SECRET")
 
-    workspace_name = os.environ.get("WORKSPACE_NAME")
-    resource_group = os.environ.get("RESOURCE_GROUP")
-    subscription_id = os.environ.get("SUBSCRIPTION_ID")
-
-    print(tenant_id)
-    print(client_id)
-    print(client_secret)
-    print(workspace_name)
-    print(resource_group)
-    print(subscription_id)
-
     # Service Principle Authentication to automate the login. Otherwise you'll have to login with your own user account.
     # Get these parameters from the Azure Portal / Azure CLI
     spa = ServicePrincipalAuthentication(tenant_id=tenant_id,  # tenantID
