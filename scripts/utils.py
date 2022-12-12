@@ -7,10 +7,13 @@ from tensorflow.keras.utils import to_categorical
 from sklearn.preprocessing import LabelEncoder
 from typing import List
 
+
 def getTargets(filepaths: List[str]) -> List[str]:
-    labels = [fp.split('/')[-1].split('_')[0] for fp in filepaths] # Get only the animal name
+    labels = [fp.split('/')[-2].split('_')[0]
+              for fp in filepaths]  # Get only the animal name
 
     return labels
+
 
 def encodeLabels(y_train: List, y_test: List):
     label_encoder = LabelEncoder()
@@ -24,6 +27,7 @@ def encodeLabels(y_train: List, y_test: List):
     print(f"{LABELS} -- {label_encoder.transform(LABELS)}")
 
     return LABELS, y_train_1h, y_test_1h
+
 
 def getFeatures(filepaths: List[str]) -> np.array:
     images = []
@@ -40,14 +44,20 @@ def buildModel(inputShape: tuple, classes: int) -> Sequential:
     chanDim = -1
 
     # CONV => RELU => POOL layer set              # first CONV layer has 32 filters of size 3x3
-    model.add(Conv2D(32, (3, 3), padding="same", name='conv_32_1', input_shape=inputShape))
-    model.add(Activation("relu"))                 # ReLU (Rectified Linear Unit) activation function
-    model.add(BatchNormalization(axis=chanDim))   # normalize activations of input volume before passing to next layer
-    model.add(MaxPooling2D(pool_size=(2, 2)))     # progressively reduce spatial size (width and height) of input 
-    model.add(Dropout(0.25))                      # disconnecting random neurons between layers, reduce overfitting
+    model.add(Conv2D(32, (3, 3), padding="same",
+              name='conv_32_1', input_shape=inputShape))
+    # ReLU (Rectified Linear Unit) activation function
+    model.add(Activation("relu"))
+    # normalize activations of input volume before passing to next layer
+    model.add(BatchNormalization(axis=chanDim))
+    # progressively reduce spatial size (width and height) of input
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    # disconnecting random neurons between layers, reduce overfitting
+    model.add(Dropout(0.25))
 
     # (CONV => RELU) * 2 => POOL layer set          # filter dimensions remain the same (3x3)
-    model.add(Conv2D(64, (3, 3), padding="same", name='conv_64_1'))   # increase total number of filters learned (from 32 to 64)
+    # increase total number of filters learned (from 32 to 64)
+    model.add(Conv2D(64, (3, 3), padding="same", name='conv_64_1'))
     model.add(Activation("relu"))
     model.add(BatchNormalization(axis=chanDim))
     model.add(Conv2D(64, (3, 3), padding="same", name='conv_64_2'))
@@ -57,7 +67,8 @@ def buildModel(inputShape: tuple, classes: int) -> Sequential:
     model.add(Dropout(0.25))
 
     # (CONV => RELU) * 3 => POOL layer set
-    model.add(Conv2D(128, (3, 3), padding="same", name='conv_128_1'))   # total number of filters learned by CONV layers has doubled (128)
+    # total number of filters learned by CONV layers has doubled (128)
+    model.add(Conv2D(128, (3, 3), padding="same", name='conv_128_1'))
     model.add(Activation("relu"))
     model.add(BatchNormalization(axis=chanDim))
     model.add(Conv2D(128, (3, 3), padding="same", name='conv_128_2'))
