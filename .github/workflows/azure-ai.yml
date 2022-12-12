@@ -86,16 +86,16 @@ on:
 env:
   CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
 
-  CLIENT_ID: adf0c9de-62e0-4bb5-8737-050c2a914f9b # Change this !
+  CLIENT_ID: 3bb8e6cb-6fc9-4692-9db4-a537a1483c49 # Change this !
   TENANT_ID: 4ded4bb1-6bff-42b3-aed7-6a36a503bf7a # Change this !
   WORKSPACE_NAME: bossuyt-bram-ml # Change this !
-  RESOURCE_GROUP: mlops-demo # Change this !
+  RESOURCE_GROUP: MLops # Change this !
   SUBSCRIPTION_ID: e46ec49e-7bec-4b81-8617-861c47439d64 # Change this !
 
-  ANIMALS: cats_v1,dogs_v1,pandas_v1 # As we have three classes, let's just defined them here. This way we can easily loop over them later.
-  TRAIN_SET_NAME: animals-training-set
-  TEST_SET_NAME: animals-testing-set
-  MODEL_NAME: animal-cnn
+  ANIMALS: pizza,notpizza # As we have three classes, let's just defined them here. This way we can easily loop over them later.
+  TRAIN_SET_NAME: food-training-set
+  TEST_SET_NAME: food-testing-set
+  MODEL_NAME: food-cnn
 
   SCRIPT_FOLDER: scripts
 
