@@ -13,7 +13,7 @@ def init():
 
     # The AZUREML_MODEL_DIR environment variable indicates
     # a directory containing the model file you registered.
-    model_path = os.path.join(os.environ.get('AZUREML_MODEL_DIR'), 'pizza-cnn')
+    model_path = os.path.join(os.environ.get('AZUREML_MODEL_DIR'), 'food-cnn')
 
     model = load_model(model_path)
 
