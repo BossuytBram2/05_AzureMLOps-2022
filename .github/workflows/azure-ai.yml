@@ -92,7 +92,7 @@ env:
   RESOURCE_GROUP: MLops # Change this !
   SUBSCRIPTION_ID: e46ec49e-7bec-4b81-8617-861c47439d64 # Change this !
 
-  ANIMALS: pizza,notpizza # As we have three classes, let's just defined them here. This way we can easily loop over them later.
+  ANIMALS: pizza_v1,notpizza_v1 # As we have three classes, let's just defined them here. This way we can easily loop over them later.
   TRAIN_SET_NAME: food-training-set
   TEST_SET_NAME: food-testing-set
   MODEL_NAME: food-cnn
@@ -154,7 +154,7 @@ jobs:
       MAX_EPOCHS: 2
       BATCH_SIZE: 32
       PATIENCE: 11
-      EXPERIMENT_NAME: animal-classification
+      EXPERIMENT_NAME: food-classification
 
       ## Compute cluster parts
       AML_COMPUTE_CLUSTER_NAME: nathan-cpu-cluster
@@ -166,7 +166,7 @@ jobs:
 
       ## Training environment
       CONDA_DEPENDENCIES_PATH: conda_dependencies.yml
-      TRAINING_ENV_NAME: animals-classification-env-training
+      TRAINING_ENV_NAME: food-classification-env-training
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -200,8 +200,8 @@ jobs:
 
     env:
       DEPLOYMENT_DEPENDENCIES: deployment_environment.yml
-      DEPLOYMENT_ENV_NAME: animals-classification-env-deployment
-      SCORE_SERVICE_NAME: animals-classification-svc
+      DEPLOYMENT_ENV_NAME: food-classification-env-deployment
+      SCORE_SERVICE_NAME: food-classification-svc
       LOCAL_MODEL_PATH: api/outputs
       LOCAL_DEPLOYMENT: ${{ inputs.local_deployment }}
 
