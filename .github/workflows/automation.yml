@@ -15,7 +15,7 @@ jobs:
       split_images: false
       train_on_local: false
       local_deployment: false
-    secrets: inherit
+    # secrets: inherit
 env:
   CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
   CLIENT_ID: ${{ secrets.CLIENT_ID }}
