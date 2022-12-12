@@ -15,4 +15,10 @@ jobs:
       split_images: false
       train_on_local: false
       local_deployment: false
-    secrets: inherit
+env:
+  CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  TENANT_ID: ${{ secrets.TENANT_ID }}
+  WORKSPACE_NAME: ${{ secrets.WORKSPACE_NAME }}
+  RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
+  SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
