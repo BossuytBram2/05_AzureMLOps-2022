@@ -19,6 +19,7 @@ from azureml.data.datapath import DataPath
 # This line read those in.
 load_dotenv()
 
+print(os.environ.get('FOOD'))
 FOOD = os.environ.get('FOOD').split(',')
 SEED = int(os.environ.get('RANDOM_SEED'))
 TRAIN_TEST_SPLIT_FACTOR = float(os.environ.get('TRAIN_TEST_SPLIT_FACTOR'))
