@@ -162,7 +162,7 @@ jobs:
       AML_COMPUTE_CLISTER_MAX_NODES: 4
       AML_COMPUTE_CLUSTER_SKU: STANDARD_D2_V2
 
-      TRAIN_ON_LOCAL: ${{ inputs.train_on_local }} # If you want to train on your local runner, set this to True.
+      TRAIN_ON_LOCAL: True # If you want to train on your local runner, set this to True.
 
       ## Training environment
       CONDA_DEPENDENCIES_PATH: conda_dependencies.yml
