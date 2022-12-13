@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 # This line read those in.
 load_dotenv()
 
-ANIMALS = os.environ.get('FOOD').split(',')
+FOOD = os.environ.get('FOOD').split(',')
 MODEL_NAME = os.environ.get('MODEL_NAME')
 LOCAL_DEPLOYMENT = os.environ.get('LOCAL_DEPLOYMENT')
 print(LOCAL_DEPLOYMENT)
@@ -20,11 +20,22 @@ print(type(LOCAL_DEPLOYMENT))
 
 
 def prepareEnv(ws):
-    environment_name = os.environ.get('DEPLOYMENT_ENV_NAME')
-    conda_dependencies_path = os.environ.get('DEPLOYMENT_DEPENDENCIES')
+    # environment_name = os.environ.get('DEPLOYMENT_ENV_NAME')
+    # conda_dependencies_path = os.environ.get('DEPLOYMENT_DEPENDENCIES')
 
-    env = Environment.from_conda_specification(
-        environment_name, file_path=conda_dependencies_path)
+    # env = Environment.from_conda_specification(
+    #     environment_name, file_path=conda_dependencies_path)
+
+    environment_name = os.environ.get(
+        'DEPLOYMENT_ENV_NAME', 'food-classification-env-deployment')
+    env = Environment(environment_name)
+    env.python.conda_dependencies = CondaDependencies.create(pip_packages=[
+        'azureml-defaults',
+        'tensorflow==2.7',
+        'numpy',
+        'Pillow'
+    ])
+
     # Register environment to re-use later
     env.register(workspace=ws)
 
