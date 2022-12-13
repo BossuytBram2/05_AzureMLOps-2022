@@ -1,10 +1,11 @@
 import os
 
 from utils import connectWithAzure
-from azureml.core.environment import Environment
+from azureml.core import Environment
 from azureml.core.model import InferenceConfig
 from azureml.core.webservice import AciWebservice
 from azureml.core import Model
+from azureml.core.conda_dependencies import CondaDependencies
 
 from dotenv import load_dotenv
 
