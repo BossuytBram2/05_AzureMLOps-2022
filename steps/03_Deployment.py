@@ -55,6 +55,8 @@ def prepareDeployment(ws, environment):
     # Get our model based on the name we registered in the previous notebook
     model = Model(ws, MODEL_NAME)
 
+    print(model)
+
     service = Model.deploy(workspace=ws,
                            name=service_name,
                            models=[model],
