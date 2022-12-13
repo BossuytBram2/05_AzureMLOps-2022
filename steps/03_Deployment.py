@@ -21,21 +21,21 @@ print(type(LOCAL_DEPLOYMENT))
 
 
 def prepareEnv(ws):
-    # environment_name = os.environ.get('DEPLOYMENT_ENV_NAME')
-    # conda_dependencies_path = os.environ.get('DEPLOYMENT_DEPENDENCIES')
+    environment_name = os.environ.get('DEPLOYMENT_ENV_NAME')
+    conda_dependencies_path = os.environ.get('DEPLOYMENT_DEPENDENCIES')
 
-    # env = Environment.from_conda_specification(
-    #     environment_name, file_path=conda_dependencies_path)
+    env = Environment.from_conda_specification(
+        environment_name, file_path=conda_dependencies_path)
 
-    environment_name = os.environ.get(
-        'DEPLOYMENT_ENV_NAME', 'food-classification-env-deployment')
-    env = Environment(environment_name)
-    env.python.conda_dependencies = CondaDependencies.create(pip_packages=[
-        'azureml-defaults',
-        'tensorflow==2.7',
-        'numpy',
-        'Pillow'
-    ])
+    # environment_name = os.environ.get(
+    #     'DEPLOYMENT_ENV_NAME', 'food-classification-env-deployment')
+    # env = Environment(environment_name)
+    # env.python.conda_dependencies = CondaDependencies.create(pip_packages=[
+    #     'azureml-defaults',
+    #     'tensorflow==2.7',
+    #     'numpy',
+    #     'Pillow'
+    # ])
 
     # Register environment to re-use later
     env.register(workspace=ws)
